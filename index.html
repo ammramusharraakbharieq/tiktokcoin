@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Koin TikTok</title>
+    <!-- Font modern Inter & FontAwesome untuk icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="tiktok-logo-svg">
+                    <path
+                        d="M19.5898 6.68599C17.7718 6.556 16.0374 5.76701 14.671 4.43699C14.5362 4.3013 14.394 4.15654 14.246 4H10.518V14.542C10.518 16.142 9.21981 17.44 7.61981 17.44C6.01981 17.44 4.72161 16.142 4.72161 14.542C4.72161 12.942 6.01981 11.644 7.61981 11.644C7.94071 11.644 8.24351 11.696 8.52841 11.792V8.12599C8.2323 8.08679 7.93041 8.064 7.61981 8.064C4.0435 8.064 1.14351 10.964 1.14351 14.542C1.14351 18.12 4.0435 21.02 7.61981 21.02C11.1961 21.02 14.0961 18.12 14.0961 14.542V8.75099C15.6881 10.045 17.653 10.741 19.5898 10.835V6.68599Z"
+                        fill="#161823" />
+                </svg>
+                <h1>Koin TikTok</h1>
+            </div>
+            <div class="header-right">
+                <i class="fas fa-receipt icon-action"></i>
+                <i class="far fa-question-circle icon-action" id="editCoinBtn" title="Edit Saldo Koin"></i>
+            </div>
+        </header>
+
+        <!-- Main Scrollable Content -->
+        <div class="scroll-content">
+            <!-- Safe Badge -->
+            <div class="safe-badge-wrapper">
+                <div class="safe-badge">
+                    <i class="fas fa-shield-alt"></i> Pembayaran aman <i class="fas fa-chevron-right badge-arrow"></i>
+                </div>
+            </div>
+
+            <!-- Logged In Profile Card -->
+            <div class="card profile-card">
+                <div class="profile-left">
+                    <!-- Photo placeholder, will be replaced by avatar or real pic -->
+                    <img src="logopersib.jpg" alt="Avatar" class="avatar">
+                    <div class="profile-info">
+                        <h2 class="username">llivepersibbandung2026</h2>
+                        <div class="coin-balance">
+                            <div class="coin-icon">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <span class="balance-amount">3,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <div class="dropdown-btn">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Username Input for Target Transfer -->
+            <div class="card search-card">
+                <input type="text" id="tiktokUsername" placeholder="Masukkan username" autocomplete="off">
+                <!-- User Profile Preview (Hidden by default) -->
+                <div id="userProfilePreview" class="user-preview hidden">
+                    <img id="previewAvatar" src="" alt="Avatar" class="preview-avatar">
+                    <div class="preview-info">
+                        <h4 id="previewName">Nama Pengguna</h4>
+                        <p id="previewUsername">@username</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recharge Packages -->
+            <div class="card packages-card">
+                <h3 class="section-title">Isi ulang</h3>
+
+                <div class="promo-warning">
+                    Hemat sekitar 25% dengan biaya layanan pihak ketiga yang lebih rendah. <img src="logoinfo.png"
+                        alt="Info" class="info-icon-img">
+                </div>
+
+                <div class="packages-grid">
+                    <!-- Active Package -->
+                    <div class="pkg-box active" data-coins="30" data-price="6000">
+                        <div class="pkg-coins">
+                            <div class="coin-icon"><i class="fab fa-tiktok"></i></div> 30
+                        </div>
+                        <div class="pkg-price">Rp6,000</div>
+                    </div>
+
+                    <div class="pkg-box" data-coins="350" data-price="69900">
+                        <div class="pkg-coins">
+                            <div class="coin-icon"><i class="fab fa-tiktok"></i></div> 350
+                        </div>
+                        <div class="pkg-price">Rp69,900</div>
+                    </div>
+
+                    <div class="pkg-box" data-coins="700" data-price="139800">
+                        <div class="pkg-coins">
+                            <div class="coin-icon"><i class="fab fa-tiktok"></i></div> 700
+                        </div>
+                        <div class="pkg-price">Rp139,800</div>
+                    </div>
+
+                    <div class="pkg-box" data-coins="1400" data-price="279500">
+                        <div class="pkg-coins">
+                            <div class="coin-icon"><i class="fab fa-tiktok"></i></div> 1,400
+                        </div>
+                        <div class="pkg-price">Rp279,500</div>
+                    </div>
+
+                    <div class="pkg-box" data-coins="3500" data-price="698600">
+                        <div class="pkg-coins">
+                            <div class="coin-icon"><i class="fab fa-tiktok"></i></div> 3,500
+                        </div>
+                        <div class="pkg-price">Rp698,600</div>
+                    </div>
+
+                    <div class="pkg-box custom-pkg" id="customPackageBtn">
+                        <div class="pkg-custom-text">Khusus</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promo Banner 1 -->
+            <div class="card banner-card">
+                <div class="banner-content">
+                    <div class="banner-icon-large">
+                        <img src="logocoin.png" alt="Promo Cashback"
+                            style="width: 55px; height: auto; object-fit: contain;">
+                    </div>
+                    <div class="banner-text">
+                        <h4>Undang & dapatkan hingga <span class="highlight-orange">$150</span> per teman</h4>
+                        <p>Makin banyak teman, makin banyak cashback!</p>
+                    </div>
+                    <i class="fas fa-chevron-right banner-arrow"></i>
+                </div>
+            </div>
+
+            <!-- Promo Banner 2 -->
+            <div class="card banner-card" style="padding: 12px;">
+                <div class="banner-content" style="gap: 8px; align-items: center;">
+                    <div style="flex-shrink: 0;">
+                        <img src="logohomescreen.png" alt="Promo Beranda"
+                            style="width: 55px; height: auto; display: block; border-radius: 8px;">
+                    </div>
+                    <div class="banner-text-regular"
+                        style="white-space: nowrap; font-size: 13px; letter-spacing: -0.2px;">
+                        Tambahkan halaman ini ke<br>layar beranda agar dapat<br>diakses dengan sekali ketuk
+                    </div>
+                    <button class="tambah-btn" style="padding: 7px 14px;">Tambah</button>
+                </div>
+            </div>
+
+            <!-- Padding to ensure nothing is hidden behind sticky bottom -->
+            <div class="bottom-spacer"></div>
+        </div>
+
+        <!-- Sticky Checkout Footer -->
+        <div class="checkout-footer">
+            <div class="checkout-top">
+                <span class="text-gray">Penawaran khusus</span>
+                <span class="text-pink">Buka cashback 5% <i class="fas fa-chevron-right"></i></span>
+            </div>
+
+            <div class="payment-methods">
+                <img src="logovisa.png" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png"
+                    alt="Mastercard">
+                <img src="logoamex.png" alt="Amex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/200px-Logo_dana_blue.svg.png"
+                    alt="Dana">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/200px-Shopee.svg.png"
+                    alt="Shopee">
+                <img src="logoovo.png" alt="OVO">
+                <span class="payment-more">+4</span>
+            </div>
+
+            <button id="buyBtn" class="buy-btn">
+                <img src="logobayar.png" alt="Icon Aman" style="width: 18px; height: 18px; object-fit: contain;"> <span
+                    id="buyBtnText">Beli seharga Rp6,000</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Coin Bottom Sheet -->
+    <div id="customBottomSheet" class="bottom-sheet-overlay hidden">
+        <div class="bottom-sheet-content">
+            <div class="bs-header">
+                <i class="fas fa-chevron-left bs-icon" id="closeBsBtn" style="font-size: 16px;"></i>
+                <h3>Khusus</h3>
+                <i class="far fa-question-circle bs-icon" style="font-size: 18px;"></i>
+            </div>
+
+            <div class="bs-body">
+                <div class="bs-input-label">Jumlah Koin <i class="fas fa-chevron-down"
+                        style="font-size: 10px; color: #666; margin-left: 4px;"></i></div>
+                <div class="bs-input-box">
+                    <div class="coin-icon"><i class="fab fa-tiktok"></i></div>
+                    <div id="customCoinDisplay" class="bs-input-text" data-placeholder="30 - 2,500,000"></div>
+                </div>
+
+                <div class="bs-keyboard">
+                    <button class="key-btn">1</button>
+                    <button class="key-btn">2</button>
+                    <button class="key-btn">3</button>
+                    <button class="key-btn key-icon" id="keyBackspace"><i class="fas fa-backspace"
+                            style="color: #999;"></i></button>
+
+                    <button class="key-btn">4</button>
+                    <button class="key-btn">5</button>
+                    <button class="key-btn">6</button>
+                    <button class="key-btn">000</button>
+
+                    <button class="key-btn">7</button>
+                    <button class="key-btn">8</button>
+                    <button class="key-btn">9</button>
+                    <button class="key-btn">0</button>
+                </div>
+            </div>
+
+            <div class="bs-footer">
+                <div class="checkout-top">
+                    <span class="text-gray">Penawaran khusus</span>
+                    <span class="text-pink">Buka cashback 5% <i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="bs-total-row">
+                    <span class="bs-total-label">Total</span>
+                    <span class="bs-total-value" id="bsTotalValue">Rp0</span>
+                </div>
+                <button id="bsBuyBtn" class="bs-buy-btn" disabled>
+                    <img src="logobayar.png" alt="Aman" style="width: 18px; height: 18px; object-fit: contain;"> Isi
+                    ulang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="overlay hidden">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <p>Memproses Transaksi...</p>
+        </div>
+    </div>
+
+    <!-- New DANA-style Receipt Modal -->
+    <div id="receiptModal" class="dana-overlay hidden">
+        <div class="dana-header">
+            <i class="fas fa-times" id="closeReceiptBtn"></i>
+            <h2>Detail Transaksi</h2>
+        </div>
+
+        <div class="dana-content-wrapper">
+            <!-- Blue background extension -->
+            <div class="dana-blue-bg"></div>
+
+            <!-- Main White Card -->
+            <div class="dana-main-card">
+                <!-- DANA Logo -->
+                <div class="dana-qris-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA"
+                        class="qris-img" style="height: 48px;">
+                </div>
+
+                <div class="dana-card-meta">
+                    <span id="receiptDate">16 Jan 2026 • 22:54</span>
+                    <span id="receiptDanaId">ID DANA 0813••••8278</span>
+                </div>
+
+                <div class="dana-status">
+                    <i class="fas fa-check-circle text-green"></i> Transaksi berhasil!
+                </div>
+
+                <div class="dana-target-title">Pembayaran ke <span id="receiptToName">Target</span>,</div>
+
+                <div class="dana-total-box">
+                    <span class="total-label">Total Bayar</span>
+                    <span class="total-value" id="receiptPrice">Rp12.000 <i class="fas fa-chevron-down"
+                            style="font-size:12px; color: #ccc; margin-left:6px;"></i></span>
+                </div>
+
+                <div class="dana-row" style="margin-top: 16px;">
+                    <span class="dana-label">Metode Pembayaran</span>
+                    <div class="dana-value-right">
+                        <div>Saldo DANA</div>
+                        <div class="text-gray">(SmartPay)</div>
+                    </div>
+                </div>
+
+                <div class="dana-divider"></div>
+
+                <div class="dana-row" style="margin-bottom: 24px;">
+                    <span class="dana-label-bold">Detail Transaksi</span>
+                    <i class="fas fa-chevron-down text-gray"></i>
+                </div>
+
+                <button class="dana-patungan-btn">BUAT PATUNGAN</button>
+
+                <!-- Zigzag bottom border -->
+                <div class="zigzag-border"></div>
+            </div>
+
+            <!-- Promo Black Card -->
+            <div class="dana-promo-card">
+                <h3>Buat profil sekarang</h3>
+                <p>Periksa fitur terbaru untuk tetap terhubung dengan teman dan keluarga!</p>
+                <div class="promo-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="bottom-spacer-dana"></div>
+        </div>
+
+        <!-- Sticky Footer -->
+        <div class="dana-sticky-footer">
+            <button class="dana-bantuan-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/476/476863.png" alt="Help"
+                    style="width: 20px; height:20px; object-fit: contain;">
+                BUTUH BANTUAN?
+            </button>
+        </div>
+    </div>
+
+    <!-- Edit Coin Modal -->
+    <div id="editCoinModal" class="overlay hidden">
+        <div class="modal">
+            <h3>Edit Saldo Koin</h3>
+            <p>Masukkan nominal koin simulasi baru.</p>
+            <div
+                style="border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
+                <div class="coin-icon" style="flex-shrink: 0;"><i class="fab fa-tiktok"></i></div>
+                <input type="text" id="newCoinInput" value="3500" inputmode="numeric"
+                    style="border: none; font-size: 20px; font-weight: 700; color: #000; width: 100%; outline: none;"
+                    autocomplete="off">
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <button id="cancelEditCoinBtn"
+                    style="flex: 1; padding: 14px; border-radius: 8px; border: 1px solid var(--border-color); background: transparent; font-weight: 600; cursor: pointer; color: var(--text-primary);">Batal</button>
+                <button id="saveEditCoinBtn"
+                    style="flex: 1; padding: 14px; border-radius: 8px; border: none; background: var(--tiktok-red); color: white; font-weight: 600; cursor: pointer;">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
